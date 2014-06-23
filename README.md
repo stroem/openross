@@ -70,7 +70,7 @@ We will be active in monitoring this project.
 We have a blog post talking about performance in more depth available at BLAHBLAH where we go into detail, however at a rate of 110-120 req/s we have a mean responce time of 200ms.
 Bear in mind, that we use CloudFront, so 110-120 req/s are only requests for new images that are not in the cache or have recently expired.
 
-**What happens if I change how an mode works, but use CloudFront?**
+**What happens if I change how a mode works, but use CloudFront?**
 
 If you have set a sensible expiry in your cache (we use a week) the changes will go into effect for new images immediately, and will take hold in old images as they are expunged from the cache.
 If you have set a larger expirey time for your cache, then you will have to individually remove them from Cloudfront, which is a tedius and timeconsuming process.
