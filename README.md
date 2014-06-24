@@ -67,7 +67,7 @@ We will be active in monitoring this project.
 
 **What performance characteristics does OpenRoss have?**
 
-We have a blog post talking about performance in more depth available at BLAHBLAH where we go into detail, however at a rate of 110-120 req/s we have a mean responce time of 200ms.
+We have a blog post talking about performance in more depth available at http://developers.lyst.com/data/images/2014/06/23/openross/ where we go into detail, however at a rate of 110-120 req/s we have a mean responce time of 200ms.
 Bear in mind, that we use CloudFront, so 110-120 req/s are only requests for new images that are not in the cache or have recently expired.
 
 **What happens if I change how a mode works, but use CloudFront?**
