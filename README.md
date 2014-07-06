@@ -24,10 +24,10 @@ As this was so useful for us, we have decided to open source our solution as Ope
 
 ## Installation for testing/debug
 
-1. Clone openross
-2. Setup a virtual environment (optional)
-3. Run `python setup.py install`
-4. Change directory into the inner openross dir
+1. Clone openross.
+2. Setup a virtual environment (optional).
+3. Run `pip install -e .`
+4. Change directory into the inner `openross` directory.
 5. Add your AWS credentials to `~/.openross.py`
 ```python
 AWS_ACCESS_KEY_ID = "MYKEYID"
@@ -35,10 +35,10 @@ AWS_SECRET_ACCESS_KEY = "MYSECRETKEY"
 IMAGES_STORE = 'MYBUCKET'
 DEBUG = True
 ```
-6. Run `twisted -n openross`
-7. Configure nginx using the `nginx.conf-snippet` file for help
-8. Start nginx
-9. Navigate to `http://localhost/path/to/image/in/your/s3/bucket`
+6. Run `twisted -n openross`.
+7. Configure nginx using the `nginx.conf-snippet` file for help.
+8. Start nginx.
+9. Navigate to `http://localhost/path/to/image/in/your/s3/bucket`.
 
 ## Usage
 
