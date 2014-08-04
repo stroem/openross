@@ -54,6 +54,7 @@ class S3Downloader(object):
                     reactor, timeout,
                     threads.deferToThread, self._get_data_from_s3, payload['image_path']
                 )
+                return dfd
             else:
                 dfd = task.deferLater(
                     reactor, timeout, self._get_data_from_s3_tx, payload['image_path']
