@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='openross',
-    version='0.1.0',
+    version='0.1.1',
     description='Open BobRoss Image Processor',
     url='http://www.lyst.com',
     license='Apache 2.0 Licence',

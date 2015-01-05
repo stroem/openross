@@ -126,7 +126,7 @@ class BobRossEndpoint(resource.Resource):
             return server.NOT_DONE_YET
 
         # Ensure image is a jpeg that is being requested
-        if '.jpeg' not in request.path and '.jpg' not in request.path:
+        if '.jpeg' not in request.path and '.jpg' not in request.path and '.png' not in request.path:
             request.setResponseCode(403)
             return ''
 

@@ -5,6 +5,7 @@ import settings
 import glob
 import os
 import logging
+import subprocess
 
 
 class CacheCheck(object):
@@ -14,15 +15,19 @@ class CacheCheck(object):
     def __init__(self, engine):
         self.engine = engine
 
-    def _find_cache_matches(self, file_path):
-        """ Look for a file (no resized, original s3 download) in the cache """
-
-        orig_format = '%s.jpeg' % file_path[:-1]
+    def _find_cache_file(self, file_path, extension):
+        orig_format = '%s.%s' % (file_path[:-1], extension)
         for f in glob.iglob(orig_format):
             if f == orig_format:
                 return f
-        return False
+        
+        return None
 
+    def _find_cache_matches(self, file_path):
+        """ Look for a file (no resized, original s3 download) in the cache """
+
+        return self._find_cache_file(file_path, 'jpeg') or self._find_cache_file(file_path, 'png') or False
+    
     def _read_image(self, file_path):
         """ Read file from filesystem """
 
@@ -49,6 +54,9 @@ class CacheCheck(object):
             log.msg(
                 'Original file found in cache, skipping S3: %s' % (bigger_cache),
                 logLevel=logging.DEBUG)
+
+        # Touch file to change modified at date
+        subprocess.call(['touch', bigger_cache])
 
         data = yield threads.deferToThread(self._read_image, bigger_cache)
         payload['original_image'] = data
